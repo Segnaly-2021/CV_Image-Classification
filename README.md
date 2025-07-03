@@ -6,7 +6,9 @@ It's a slightly modified version of the ResNet architecture with little changes:
 
 As mentioned earlier, I trained the model on the MNIST dataset, and got around 96% accuracy. 
 
-I then built the API with FastAPI and *dockerized* it.
+I then built the API with FastAPI and *Dockerized* it. 
+
+Given an image, it returns a message with the digit in that image and the level of confidence.
 
 If you have Docker installed, you can try it out yourself by following the steps below:
 
@@ -36,8 +38,8 @@ If you have Docker installed, you can try it out yourself by following the steps
 
 - Step 5:
 
-    Finally to try the app out click on **try it out** button on the right corner.
-    Submit an image by choosing one from the **images_test** directory. To find it navigate in your local filesystem to find the repository you cloned in **step 1**.
+    Finally to try the app out click on the **try it out** button on the right corner.
+    Submit an image by choosing one from the **images_test** directory. To find it navigate in your local filesystem to find the folder you cloned in **step 1**.
     
     After that, click on execute and let the magic happen!!! 
       
