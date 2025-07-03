@@ -1,0 +1,11 @@
+__pycache__/
+.ipynb_checkpoints/
+images_test/
+.ruff_cache/
+notebooks/
+.venv/
+.gitignore
+Dokerfile
+pyproject.toml
+compose.yaml
+requirements.txt

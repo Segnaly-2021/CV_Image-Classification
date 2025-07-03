@@ -1,0 +1,26 @@
+[tool.ruff]
+
+line-length = 88
+extend-include = ["*.ipynb"]
+
+[tool.ruff.lint]
+select = [
+    # pycodestyle
+    "E",
+    # Pyflakes
+    "F"
+]
+
+ignore = [
+    # indentation-with-invalid-multiple
+    "E111",
+    # indentation-with-invalid-multiple-comment 
+    "E114",
+    # over-indented 
+    "E117"
+]
+
+[tool.ruff.format]
+docstring-code-format = true
+
+
