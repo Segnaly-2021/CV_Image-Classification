@@ -13,7 +13,7 @@ That being said, once the model is built I save it using keras and then develop 
 This app deploys the model, which means making it available to the end users. Therfore, It provides an interface between the model and the users. 
 In our case, it requires users to provide an image of shape of (28, 28, 1), it processes it and rescales it so that its pixels range from
 0 to 1 and then gives it to the model as input. The model makes its prediction and returns the **handwriten digit** in the provided image 
-as well as the level of confidence. The app takes all of those information and gets them back to the users.
+as well as the level of confidence. The app takes all of those pieces of information and gets them back to the users.
 
 Finally to make sure this works everywhere, I *dockerize* the app, meaning putting the app and all of its dependencies inside a container.
 To do that I created a Dockerfile (see ./Dockerfile) to build a docker image which is living at this time in my docker Hub repository.
@@ -26,7 +26,7 @@ To do so, you will first have to open a terminal and follow the steps below. I p
 
     You will have to clone this repository:
 
-      git clone https://github.com/Segnaly-2021/image_classification_project.git
+      git clone https://github.com/Segnaly-2021/CV_Image-Classification.git
 - Step 2:
   
     The second step is to build the image. One of the simplest ways to do so is to pull the already-existing image living on docker Hub.
