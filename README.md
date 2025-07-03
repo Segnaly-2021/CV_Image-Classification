@@ -1,4 +1,4 @@
-In this project, I built a computer vision model that recognize handwritten digits.
+In this project, I built a computer vision model that can recognize handwritten digits.
 It's a slightly modified version of the ResNet architecture with little changes:
 
 - The input layer shape is set to (28, 28, 1) to match the MNIST dataset image size (28,28).
