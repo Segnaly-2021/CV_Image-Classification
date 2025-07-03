@@ -19,7 +19,7 @@ If you have Docker installed, you can try it out yourself by following the steps
       git clone https://github.com/Segnaly-2021/CV_Image-Classification.git
 - Step 2:
   
-    The second step is to build the image. To do so is to pull the corresponding container image from docker Hub:
+    The second step is to build the image. To do so you can pull the corresponding container image from docker Hub:
 
       docker pull alysegnane/im-classif:modif-ver-resnet
 - Step 3:
@@ -34,11 +34,11 @@ If you have Docker installed, you can try it out yourself by following the steps
   
       http://localhost:8080/docs
 
-    Once there click on top of the **POST/predict** endpoint on the green bar and more options will become visible.
+    Once there click on the **POST/predict** endpoint on the green bar and more options will become visible.
 
 - Step 5:
 
-    Finally to try the app out click on the **try it out** button on the right corner.
+    Finally to try the app out click on the **try it out** button in the right corner.
     Submit an image by choosing one from the **images_test** directory. To find it navigate in your local filesystem to find the folder you cloned in **step 1**.
     
     After that, click on execute and let the magic happen!!! 
