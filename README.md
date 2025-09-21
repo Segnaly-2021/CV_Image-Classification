@@ -21,12 +21,12 @@ If you have Docker installed, you can try it out yourself by following the steps
   
     The second step is to build the image. To do so you can pull the corresponding container image from docker Hub:
 
-      docker pull alysegnane/im-classif:modif-ver-resnet
+      docker pull alysegnane/img_classifier_resnet_12:latest
 - Step 3:
 
     Once the image is downloaded, you can run a container out of it. the line below shows how to do that:
   
-      docker run --rm -p 8080:8080 alysegnane/im-classif:modif-ver-resnet
+      docker run --rm -p 8080:8080 alysegnane/img_classifier_resnet_12:latest
 
 - Step 4:
 
