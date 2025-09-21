@@ -8,7 +8,10 @@ DefaultConv2D = partial(
     keras.layers.Conv2D, kernel_size=3, strides=1, padding="SAME", use_bias=False
 )
 
-@tf.keras.utils.register_keras_serializable()
+# This decorator tells keras here is a custom object you need to 
+# remember when serializing or deserializing
+
+@tf.keras.utils.register_keras_serializable() 
 class ResidualBlock(keras.layers.Layer):
     """Creates a custom residual block"""
 
@@ -16,6 +19,7 @@ class ResidualBlock(keras.layers.Layer):
         """Builds stacks of layers"""
 
         # Call the constructors of keras.layers.Layer class
+        # **kwargs used for some keyword arguments such as name and dtype
         super().__init__(**kwargs)
 
         # Set the activation
@@ -58,7 +62,9 @@ class ResidualBlock(keras.layers.Layer):
         # summing the main_output and skip_output
         return self.activation(main_output + skip_output)
     
+      
     def get_config(self):
+        """It allows our residual block to be serializable by keras"""
         config = super().get_config()
         config.update({
             "filters": self.filters,
