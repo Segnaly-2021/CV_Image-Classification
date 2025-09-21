@@ -2,9 +2,9 @@ In this project, I built a computer vision model that can recognize handwritten 
 It's a slightly modified version of the ResNet architecture with little changes:
 
 - The input layer shape is set to (28, 28, 1) to match the MNIST dataset image size (28,28).
-- I reduced the number of stages of Residual Blocks down to 2 instead of 4 in the original architecture ...
+- I reduced the number of Residual Blocks down to 5, which makes it a ResNet-12.
 
-As mentioned earlier, I trained the model on the MNIST dataset, and got around 96% accuracy. 
+As mentioned earlier, I trained the model on the MNIST dataset, and got 98.9% accuracy. 
 
 I then built the API with FastAPI and *Dockerized* it. 
 
