@@ -43,4 +43,4 @@ If you have Docker installed, you can try it out yourself by following the steps
     
     After that, click on execute and let the magic happen!!! 
       
- <im src="./demo.png" alt="Demo Image not Found">
+ <img src="./demo_img.png" alt="Demo Image not Found">
