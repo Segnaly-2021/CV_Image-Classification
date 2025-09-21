@@ -42,7 +42,6 @@ If you have Docker installed, you can try it out yourself by following the steps
     Submit an image by choosing one from the **images_test** directory. To find it navigate in your local filesystem to find the folder you cloned in **step 1**.
     
     After that, click on execute and let the magic happen!!! 
-<div>    
- <img src="./demo_img_1.png" alt="Demo Image not Found">
- <img src="./demo_img_2.png" alt="Demo Image not Found">
-</div>
+   
+ <img src="./demo_img.png" alt="Demo Image not Found">
+ 
