@@ -5,14 +5,14 @@ services:
     build:
       context: .  
       dockerfile: Dockerfile  
-    image: img_classifier:latest
+    image: img_classifier_resnet_12:latest 
     restart: unless-stopped
     command: uvicorn app.main:app --host 0.0.0.0 --port 8080 
     ports:
       - "8080:8080"  
     networks:
-      - img_class_net
+      - imgClass_net
 
 networks:
-  img_class_net:
+  imgClass_net:
     driver: bridge
