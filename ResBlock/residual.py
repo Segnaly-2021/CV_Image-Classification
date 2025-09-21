@@ -1,4 +1,5 @@
 # Imports
+import tensorflow as tf
 from tensorflow import keras
 from functools import partial
 
@@ -7,7 +8,7 @@ DefaultConv2D = partial(
     keras.layers.Conv2D, kernel_size=3, strides=1, padding="SAME", use_bias=False
 )
 
-
+@tf.keras.utils.register_keras_serializable()
 class ResidualBlock(keras.layers.Layer):
     """Creates a custom residual block"""
 
@@ -56,3 +57,12 @@ class ResidualBlock(keras.layers.Layer):
 
         # summing the main_output and skip_output
         return self.activation(main_output + skip_output)
+    
+    def get_config(self):
+        config = super().get_config()
+        config.update({
+            "filters": self.filters,
+            "strides": self.strides,
+            "activation": self.activation_name,
+        })
+        return config

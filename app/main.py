@@ -3,15 +3,18 @@ import cv2
 import uvicorn  # noqa: F401
 import numpy as np
 import tensorflow as tf
+from ResBlock import ResidualBlock
 from fastapi import FastAPI, UploadFile, File, HTTPException
 
-app = FastAPI(title="Handwritten_digit_Identifier")
+app = FastAPI(title="Handwritten Digit Identifier")
 
 # Load model once at startup
 try:
-    model_path = os.path.abspath("./app/models/")
-    model = tf.saved_model.load(model_path)
-    pred_func = model.signatures['serving_default']
+    model_path = os.path.abspath("./app/models/model.keras")
+    model = tf.keras.models.load_model(
+        model_path, 
+        custom_objects={"ResidualBlock": ResidualBlock}
+    )
 except Exception as e:
     raise RuntimeError(f"Failed to load model: {e}")
 
@@ -33,25 +36,24 @@ async def prediction(file: UploadFile = File(...)):
     
     try:
         # Read file once
-        file_bytes = await file.read()
-        bytes_to_nparray = np.asarray(bytearray(file_bytes), dtype=np.uint8)
+        content_bytes = await file.read()
+        bytes_to_nparray = np.asarray(bytearray(content_bytes), dtype=np.uint8)
         image = cv2.imdecode(bytes_to_nparray, cv2.IMREAD_GRAYSCALE)
         
         if image is None:
             raise HTTPException(status_code=400, detail="Invalid image file")
         
         # Preprocess
-        image_tensor = tf.convert_to_tensor(image, dtype=tf.float32)
-        image_0_1 = image_tensor / 255.0
-        input_image = tf.expand_dims(tf.expand_dims(image_0_1, axis=0), axis=3)
+        image_0_1 = image / 255.0
+        input_image = tf.expand_dims(image_0_1, axis=0)
         
         # Single prediction
-        prediction = pred_func(input_image)['output_0'].numpy()
-        y_pred = np.argmax(prediction)
-        conf_prob = np.max(prediction) * 100
+        predictions = model.predict(input_image)
+        y_pred = np.argmax(predictions)
+        conf_prob = np.max(predictions) * 100
         
         message = (
-            f"The handwritten digit is predicted to be {y_pred} "
+            f"The digit you provided is predicted to be {y_pred}, "
             f"with a confidence level of: {conf_prob:.2f}%"
         )
         return {"message": message}
