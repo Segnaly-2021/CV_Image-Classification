@@ -63,12 +63,17 @@ class ResidualBlock(keras.layers.Layer):
         return self.activation(main_output + skip_output)
     
       
-    def get_config(self):
-        """It allows our residual block to be serializable by keras"""
-        config = super().get_config()
-        config.update({
-            "filters": self.filters,
-            "strides": self.strides,
-            "activation": self.activation_name,
-        })
-        return config
+    # I comment out this method because I realize It's not required
+    # since all the arguments passed to the constructor are:
+    # --> Python built-in types (filters, strides are int and activation is a string) 
+
+
+    # def get_config(self):
+    #     """It allows our residual block to be serializable by keras"""
+    #     config = super().get_config()
+    #     config.update({
+    #         "filters": self.main_layers[0].filters,
+    #         "strides": self.strides,
+    #         "activation": keras.activations.get(self.activation),
+    #     })
+    #     return config
